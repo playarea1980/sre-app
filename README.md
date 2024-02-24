@@ -19,6 +19,7 @@ helm install sre-db oci://registry-1.docker.io/bitnamicharts/postgresql \
 ----------------------------------------------------------
 
 Please ensure Postgress is up and password is working as authentication issues were seen with the latest postgres image
+
 Run this commands to ensue Postgress is installed and working correctly 
 
 export POSTGRES_PASSWORD=$(kubectl get secret --namespace stord sre-db-postgresql -o jsonpath="{.data.postgres-password}" | base64 -d)
