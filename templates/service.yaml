@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "sre-app.name" . }}
+  name: {{ include "sre-app.service" . }}
   labels:
     {{- include "sre-app.labels" . | nindent 4 }}
 spec:
