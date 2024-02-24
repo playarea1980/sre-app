@@ -27,4 +27,4 @@ spec:
           command: ["/bin/sh", "-c"]
           args: ["migrate"]
           #args: ["echo 'Migrating db!' > /app/bin/sumit"]
-      restartPolicy: Never
+      restartPolicy: OnFailure
