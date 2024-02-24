@@ -9,8 +9,13 @@ helm install sre-db oci://registry-1.docker.io/bitnamicharts/postgresql \
   --namespace $NAMESPACE \
   --set auth.database=sre-technical-challenge \
   --set auth.postgresPassword=password \
-  --set volumePermissions.enabled=true \
+  --set volumePermissions.enabled=true \   
   --set primary.persistence.size=2Gi
+
+------- Used this parameters due to disk space issues -----
+ --set volumePermissions.enabled=true \   
+  --set primary.persistence.size=2Gi
+
 
 Please ensure Postgress is up and password is working as authentication issues were seen with the latest postgres image
 Run this commands to ensue Postgress is installed and working correctly 
