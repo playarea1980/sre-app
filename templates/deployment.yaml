@@ -39,5 +39,5 @@ spec:
             {{- toYaml .Values.readinessProbe  | nindent 12 }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-          command: ["/bin/sh", "-c"]
-          args: ["echo 'Migrating db!' > /app/bin/sumit ; migrate; sleep infinity"]
+          #command: ["/bin/sh", "-c"]
+          #args: ["echo 'Migrating db!' > /app/bin/sumit ; migrate; sleep infinity"]
