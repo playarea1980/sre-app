@@ -5,6 +5,12 @@ Expand the name of the chart.
 {{- default .Chart.Name }}
 {{- end }}
 
+{{/*
+Create chart name and version as used by the chart label.
+*/}}
+{{- define "sre-app.service" -}}
+{{- printf "%s-%s" .Chart.Name .Values.service.name }}
+{{- end }}
 
 {{/*
 Create chart name and version as used by the chart label.
