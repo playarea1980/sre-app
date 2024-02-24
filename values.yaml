@@ -21,6 +21,8 @@ env:
 service:
   type: NodePort
   port: 80
+  nodePort: 30001
+  name: sre-technical-challenge
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
