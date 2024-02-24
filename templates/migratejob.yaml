@@ -22,10 +22,6 @@ spec:
               value: "{{ .Values.env.PHX_HOST }}"
             - name: PORT
               value: "{{ .Values.env.PORT }}"
-          livenessProbe:
-            {{- toYaml .Values.livenessProbe  | nindent 12 }}
-          readinessProbe:
-            {{- toYaml .Values.readinessProbe  | nindent 12 }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           command: ["/bin/sh", "-c"]
