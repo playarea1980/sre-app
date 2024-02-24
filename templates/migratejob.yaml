@@ -25,6 +25,6 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           command: ["/bin/sh", "-c"]
-           #args: ["migrate"]
-          args: ["echo 'Migrating db!' > /app/bin/sumit"]
+          args: ["migrate"]
+          #args: ["echo 'Migrating db!' > /app/bin/sumit"]
       restartPolicy: Never
