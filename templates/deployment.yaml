@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "sre-app.name" . }}
+  labels:
+    {{- include "sre-app.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "sre-app.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "sre-app.labels" . | nindent 8 }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.env.PORT }}
+              protocol: TCP
+          env:
+            - name: DATABASE_URL
+              value: "{{ .Values.env.DATABASE_URL }}"
+            - name: POOL_SIZE
+              value: "{{ .Values.env.POOL_SIZE }}"
+            - name: SECRET_KEY_BASE
+              value: "{{ .Values.env.SECRET_KEY_BASE }}"
+            - name: PHX_HOST
+              value: "{{ .Values.env.PHX_HOST }}"
+            - name: PORT
+              value: "{{ .Values.env.PORT }}"    
+          livenessProbe:
+            {{- toYaml .Values.livenessProbe  | nindent 12 }}
+          readinessProbe:
+            {{- toYaml .Values.readinessProbe  | nindent 12 }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
