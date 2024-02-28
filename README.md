@@ -1,4 +1,4 @@
-# sre-app assement -https://gist.github.com/btkostner/5863e77ba006f90c6b34dc037365f840#file-readme-md
+# sre-app  -https://gist.github.com/btkostner/5863e77ba006f90c6b34dc037365f840#file-readme-md
 
 Commands that need to run to execute and validate
 
